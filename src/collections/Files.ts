@@ -6,11 +6,21 @@ export const Files: CollectionConfig = {
   access: {
     read: () => true,
   },
+  admin: {
+    useAsTitle: "description"
+  },
   fields: [
     {
       name: 'description',
       type: 'text',
       label: 'Opis',
+      required: true,
+    },
+    {
+      name: 'class',
+      type: 'relationship',
+      relationTo: 'classes',
+      label: 'Klasa',
       required: true,
     },
   ],

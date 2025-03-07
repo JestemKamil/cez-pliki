@@ -73,7 +73,11 @@ export interface Config {
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
-  collectionsJoins: {};
+  collectionsJoins: {
+    classes: {
+      relatedFiles: 'files';
+    };
+  };
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     files: FilesSelect<false> | FilesSelect<true>;
@@ -138,6 +142,7 @@ export interface User {
 export interface File {
   id: number;
   description: string;
+  class: number | Class;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -157,6 +162,11 @@ export interface File {
 export interface Class {
   id: number;
   name: string;
+  relatedFiles?: {
+    docs?: (number | File)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -242,6 +252,7 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface FilesSelect<T extends boolean = true> {
   description?: T;
+  class?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -260,6 +271,7 @@ export interface FilesSelect<T extends boolean = true> {
  */
 export interface ClassesSelect<T extends boolean = true> {
   name?: T;
+  relatedFiles?: T;
   updatedAt?: T;
   createdAt?: T;
 }
