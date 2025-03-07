@@ -1,14 +1,16 @@
 import type { CollectionConfig } from 'payload'
 
-export const Media: CollectionConfig = {
-  slug: 'media',
+export const Files: CollectionConfig = {
+  slug: 'files',
+  labels: { singular: 'Plik', plural: 'Pliki' },
   access: {
     read: () => true,
   },
   fields: [
     {
-      name: 'alt',
+      name: 'description',
       type: 'text',
+      label: 'Opis',
       required: true,
     },
   ],
