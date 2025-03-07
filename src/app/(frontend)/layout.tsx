@@ -1,16 +1,22 @@
 import React from 'react'
 import './styles.css'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
+  description: 'Pliki na przedmiotach zawodowych CEZ.',
+  title: 'Pliki CEZ',
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
   return (
-    <html lang="en">
+    <html lang="pl" className={`${inter.className} dark`}>
       <body>
         <main>{children}</main>
       </body>
