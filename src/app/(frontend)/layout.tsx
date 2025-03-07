@@ -18,7 +18,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="pl" className={`${inter.className} dark`}>
       <body>
-        <main>{children}</main>
+        <main className="p-12">{children}</main>
       </body>
     </html>
   )
